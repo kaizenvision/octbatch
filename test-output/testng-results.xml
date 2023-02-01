@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-01T20:34:15 IST" name="Default suite" finished-at="2023-02-01T20:34:15 IST" duration-ms="224">
+    <groups>
+      <group name="regression">
+        <method signature="TestNgDemo.testOne()[pri:-1, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" name="testOne" class="com.bankingproject.loginpage.TestNgDemo"/>
+      </group> <!-- regression -->
+      <group name="reression">
+        <method signature="TestNgDemo.testTwo()[pri:2, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" name="testTwo" class="com.bankingproject.loginpage.TestNgDemo"/>
+      </group> <!-- reression -->
+      <group name="sanity">
+        <method signature="TestNgDemo.testTwo()[pri:2, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" name="testTwo" class="com.bankingproject.loginpage.TestNgDemo"/>
+      </group> <!-- sanity -->
+    </groups>
+    <test started-at="2023-02-01T20:34:15 IST" name="Default test" finished-at="2023-02-01T20:34:15 IST" duration-ms="224">
+      <class name="com.bankingproject.loginpage.TestNgDemo">
+        <test-method signature="testOne()[pri:-1, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" started-at="2023-02-01T20:34:15 IST" name="testOne" finished-at="2023-02-01T20:34:15 IST" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOne -->
+        <test-method signature="test1()[pri:0, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" started-at="2023-02-01T20:34:15 IST" name="test1" finished-at="2023-02-01T20:34:15 IST" depends-on-methods="com.bankingproject.loginpage.TestNgDemo.testOne" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method signature="testTwo()[pri:2, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" started-at="2023-02-01T20:34:15 IST" name="testTwo" finished-at="2023-02-01T20:34:15 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTwo -->
+        <test-method signature="test()[pri:-2, instance:com.bankingproject.loginpage.TestNgDemo@298a5e20]" started-at="2023-02-01T20:34:15 IST" name="test" depends-on-groups="sanity" finished-at="2023-02-01T20:34:15 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- com.bankingproject.loginpage.TestNgDemo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
