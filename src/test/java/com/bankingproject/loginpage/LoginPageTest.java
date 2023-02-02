@@ -7,25 +7,53 @@ import com.bankingproject.utility.Utility;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.bankingproject.base.BaseClass;
 import com.bankingproject.pom.LognPagePom;
 
 public class LoginPageTest extends BaseClass {
 	
 	LognPagePom lognPagePom ;
+	ExtentSparkReporter extentSparkReporter;
+	ExtentReports extentReports;
+	ExtentTest extentTest;
 	//WebDriver driver;
 	
 	@BeforeClass
 	public void setUp() {
 		launchWebsite();
+		extentSparkReporter = new ExtentSparkReporter(projectpath+"//extentReport//extent.html");
+		extentReports = new ExtentReports();
+		extentReports.attachReporter(extentSparkReporter);
 	}
 	
-	@AfterClass
-	public void tearDown() {
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+		switch (result.getStatus()) {
+		case 1:
+			extentTest.log(Status.PASS, "test case pass with correct url");
+			break;
+		case 2:
+			extentTest.log(Status.FAIL, "test case fail with incorrect url");
+			break;
+			
+		case 3:
+			extentTest.log(Status.SKIP, "test case skipped ...");
+			break;
+
+		default:
+			break;
+		}
+		extentReports.flush();
 		driver.close();
 	}
 	
@@ -38,9 +66,14 @@ public class LoginPageTest extends BaseClass {
 	}
 	
 	@Test
-	public void testUrl() {
+	public void testUrl() throws IOException {
+		extentTest = extentReports.createTest("testUrl");
 		String pageTitle = driver.getCurrentUrl();
-		Assert.assertEquals(pageTitle, "https://demo.guru99.com/V1/index.php");
+		Assert.fail();
+		Utility utility = new Utility();
+		extentTest.addScreenCaptureFromPath(utility.getScreenShot("testUrl"), pageTitle);
+		Assert.assertEquals(pageTitle, "https://demo.guru99.com/V1/index.ph");
+		
 		
 	}
 	

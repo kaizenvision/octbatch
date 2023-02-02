@@ -57,12 +57,12 @@ public class Utility extends BaseClass {
 		return data;
 	}
 
-	public void getScreenShot(String screenShotName) throws IOException {
+	public String getScreenShot(String screenShotName) throws IOException {
 
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		String desPath = projectpath + "//screenshot//"+screenShotName+".jpeg";
 		FileUtils.copyFile(screenshot,new File(desPath));
-
+		return desPath;
 	}
 
 }
